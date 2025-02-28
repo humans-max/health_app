@@ -16,6 +16,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mobil_1.ui.theme.Mobil_1Theme
 
+// 确保导入了 HeartBitActivity 类
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,17 +52,14 @@ class MainActivity : ComponentActivity() {
         startActivity(intent)
     }
 
-
     // 跳转到 HeartBitActivity
     private fun navigateToHeartBitActivity() {
         val intent = Intent(this, HeartBitActivity::class.java)
         startActivity(intent)
     }
-
-
-
 }
-//首页问候语
+
+// 首页问候语
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
@@ -68,7 +67,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         modifier = modifier
     )
 }
-//第一个页面跳转按钮
+
+// 第一个页面跳转按钮
 @Composable
 fun MyButton(onClick: () -> Unit) {
     Button(onClick = onClick) {
