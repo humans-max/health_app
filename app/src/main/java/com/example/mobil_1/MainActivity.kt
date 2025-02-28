@@ -32,8 +32,10 @@ class MainActivity : ComponentActivity() {
                     ) {
                         Greeting(name = "YGH")
                         Spacer(modifier = Modifier.height(16.dp))
+
                         MyButton(onClick = { navigateToSecondActivity() })
                         Spacer(modifier = Modifier.height(16.dp))
+
                         HeartBitButton(onClick = { navigateToHeartBitActivity() })  // 新的心率按钮
                     }
                 }
@@ -52,8 +54,10 @@ class MainActivity : ComponentActivity() {
         val intent = Intent(this, HeartBitActivity::class.java)
         startActivity(intent)
     }
-}
 
+
+}
+//首页问候语
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
@@ -61,7 +65,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         modifier = modifier
     )
 }
-
+//第一个页面跳转按钮
 @Composable
 fun MyButton(onClick: () -> Unit) {
     Button(onClick = onClick) {
@@ -69,7 +73,7 @@ fun MyButton(onClick: () -> Unit) {
     }
 }
 
-// 新的心率按钮
+// 心率页面跳转按钮
 @Composable
 fun HeartBitButton(onClick: () -> Unit) {
     Button(onClick = onClick) {
