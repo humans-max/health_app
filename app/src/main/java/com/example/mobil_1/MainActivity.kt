@@ -43,17 +43,20 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    // 跳转到 SecondActivity
+    // 跳转到 SecondActivity 并传递数据
     private fun navigateToSecondActivity() {
         val intent = Intent(this, SecondActivity::class.java)
+        intent.putExtra("message", "来自首页的问候")  // 在这里使用 putExtra
         startActivity(intent)
     }
+
 
     // 跳转到 HeartBitActivity
     private fun navigateToHeartBitActivity() {
         val intent = Intent(this, HeartBitActivity::class.java)
         startActivity(intent)
     }
+
 
 
 }

@@ -7,10 +7,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.Text
 import com.example.mobil_1.ui.theme.Mobil_1Theme
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -21,6 +20,7 @@ class SecondActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val message = intent.getStringExtra("message")?: "no message"
         setContent {
             Mobil_1Theme {
                 Column {
@@ -28,11 +28,11 @@ class SecondActivity : ComponentActivity() {
                         title = { Text("第二个页面") },
                         navigationIcon = {
                             IconButton(onClick = { onBackPressed() }) {
-                                Icon(Icons.Default.ArrowBack, contentDescription = "返回")
+                                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
                             }
                         }
                     )
-                    Text(text = "啊哈，这是第二个页面，你成功了!")
+                    Text(text = message)
                 }
             }
         }
