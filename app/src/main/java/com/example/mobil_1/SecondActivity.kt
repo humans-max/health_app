@@ -1,5 +1,6 @@
-// SecondActivity.kt
 package com.example.mobil_1
+
+// SecondActivity.kt
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

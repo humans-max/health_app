@@ -27,19 +27,29 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier
                             .padding(innerPadding)
                             .fillMaxSize(),
-                        verticalArrangement = Arrangement.Center,  // 这里是正确的拼写
-                        horizontalAlignment = Alignment.CenterHorizontally  // 这里是正确的拼写
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Greeting(name = "YGH")
-                        Spacer(modifier = Modifier.height(16.dp)) // 使用 Spacer 和 height 作为间距
-                        MyButton(onClick={navigateToSecondActivity()})
+                        Spacer(modifier = Modifier.height(16.dp))
+                        MyButton(onClick = { navigateToSecondActivity() })
+                        Spacer(modifier = Modifier.height(16.dp))
+                        HeartBitButton(onClick = { navigateToHeartBitActivity() })  // 新的心率按钮
                     }
                 }
             }
         }
     }
+
+    // 跳转到 SecondActivity
     private fun navigateToSecondActivity() {
         val intent = Intent(this, SecondActivity::class.java)
+        startActivity(intent)
+    }
+
+    // 跳转到 HeartBitActivity
+    private fun navigateToHeartBitActivity() {
+        val intent = Intent(this, HeartBitActivity::class.java)
         startActivity(intent)
     }
 }
@@ -47,7 +57,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "good $name!",
+        text = "Good $name!",
         modifier = modifier
     )
 }
@@ -55,7 +65,15 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun MyButton(onClick: () -> Unit) {
     Button(onClick = onClick) {
-        Text("请狠狠地点我!")
+        Text("Go to Second Page")
+    }
+}
+
+// 新的心率按钮
+@Composable
+fun HeartBitButton(onClick: () -> Unit) {
+    Button(onClick = onClick) {
+        Text("Go to Heart Rate & Oxygen Page")
     }
 }
 
